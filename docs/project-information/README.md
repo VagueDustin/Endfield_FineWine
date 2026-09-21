@@ -45,6 +45,12 @@ Read in order if you're new; jump by subsystem if you're implementing.
 | [12-stage1-protector-fault.md](12-stage1-protector-fault.md) | ⭐ **The critical path.** The unsolved macOS `0x6CD268` protector fault: three hypotheses (Rosetta / Wine-macOS exceptions / image base) and the ordered experiments to crack it. |
 | [references.md](references.md) | Consolidated, deduplicated source list. |
 
+### Research sub-packages
+
+| Sub-package | What it covers |
+|---|---|
+| [../mod-injection/](../mod-injection/README.md) | ⭐ **Modding research (2026-09-20):** how XXMI Launcher / EFMI loads mods, whether dwproton has patches for it (no), Wine's builtin-vs-native DLL loading and the upstream Wine 11.6 fix, CrossOver's four D3D11 backends, and a documentation-only experiment plan for getting EFMI working in the `Arknights Endfield` bottle. |
+
 ## Conventions used in these docs
 
 - **Confidence** is tagged inline as `[confidence: high/medium/low]` on the claims where it matters.
