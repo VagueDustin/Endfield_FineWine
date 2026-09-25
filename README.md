@@ -10,6 +10,16 @@ CodeWeavers rated Endfield *"Installs, Will Not Run"* and the community consensu
 >
 > **Scope & ethics:** own the game; this is compatibility work (the same category as Valve's Proton on Linux) — no in-game advantage, no modified game logic, no DRM circumvention. Running the game in an unsupported configuration may violate its Terms of Service; that risk is yours (see [LICENSE](LICENSE)). Not affiliated with Gryphline/Hypergryph, Tencent, CodeWeavers, or Apple.
 
+---
+
+## Hardware Specs & Real-World Performance
+
+Tested on an Apple **M4 Pro** (MacBook Pro 12-core, 24 GB), macOS 27.0, CrossOver 26.2/26.3 — ~**60 FPS on Medium** at 100% render scale. ⚠️ **MacBook Air is OFF-LIMITS** (no active cooling). Expect ~90 °C thermals and a fully maxed CPU on any Mac; performance is CPU + RAM bound, not GPU.
+
+➜ See **[docs/performance.md](docs/performance.md)** for the full breakdown: per-chip FPS targets, thermal behaviour, swap pressure, and optimisation tips.
+
+---
+
 ## Quick Start
 
 ### Using the Patcher.app
@@ -46,6 +56,19 @@ open /Applications/CrossOver_Endfield_Patch.app   # 4. run the game — NOT the 
 ```
 
 Full requirements, a manual (auditable) deployment, the bottle/Gryphline setup, and launch options: **[docs/installation.md](docs/installation.md)**.
+
+---
+
+## Technical Architecture (Under The Hood)
+
+Curious about how this works under the hood without cluttering up the setup guide? Read **[docs/technical.md](docs/technical.md)** for the full architectural deep dive, including:
+- **Two novel Rosetta 2 CPU bug fixes:** skipping multi-byte `0F 1F` NOP exception loops and fixing privileged `mov cr3` opcode classification in `signal_x86_64.c`.
+- **dw-proton anti-cheat port:** 17 `ntoskrnl.exe` kernel backports, `KiUser*Dispatcher` int3 spoofer, and high-resolution QPC timing loops.
+- **Surgical module swap & dynamic linking:** why only 3 Wine modules are swapped and how `@loader_path/../../../lib64` rpath is injected so D3DMetal can load.
+- **Graphics translation mechanics:** Direct DirectX 11 → Metal pipeline vs broken DX12/Vulkan paths.
+- Complete subsystem research and milestone reports in [docs/](docs/).
+
+---
 
 ## License
 
