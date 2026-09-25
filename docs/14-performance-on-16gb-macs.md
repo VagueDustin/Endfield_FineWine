@@ -21,7 +21,7 @@
 | `kernel_task` (includes the memory compressor) | 47% CPU | not measured |
 | Outcome | stutter; **froze** after teleporting into a large area (below) | "seriously very playable", no freeze |
 
-Other large memory users in session 1: Chrome ~2.1 GB, the game's own `PlatformProcess.exe` ~1.4 GB, the Claude desktop app ~1.3 GB, WindowServer ~1.2 GB, the Gryphline launcher ~1 GB, Discord and Creative Cloud ~0.4 GB each.
+Other large memory users in session 1: Chrome ~2.1 GB, the game's own `PlatformProcess.exe` ~1.4 GB, WindowServer ~1.2 GB, the Gryphline launcher ~1 GB, Discord and Creative Cloud ~0.4 GB each.
 
 ⚠️ **Several things changed between the sessions** — the D3DMetal version, how much else was running, and later the in-game settings — so the improvement can't be pinned on GPTK 4 alone. More free memory at launch was certainly a large part of it.
 
